@@ -1,0 +1,13 @@
+FROM python:3.6.5
+
+# Make workspace
+RUN mkdir -p /app/api
+
+# Copy src
+COPY src2 /app/api
+
+# Install packages
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install -r /tmp/requirements.txt
+
+CMD ["python", "/app/api/run.py"]

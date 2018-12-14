@@ -1,0 +1,18 @@
+timezone: Asia/Tokyo
+
+_export:
+    docker:
+        image: ml-apps-batch-prediction
+
+schedule:
+    minutes_interval>: 1
+    skip_delayed_by: 1m
+
++setup:
+    echo>: start ${session_time}
+
++hoge:
+    py>: main.run_batch
+
++teardown:
+    echo>: finish ${session_time}
